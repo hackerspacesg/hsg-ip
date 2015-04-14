@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+require () {
+	for i
+	do
+		command -v "$i" > /dev/null || (
+			echo command $i not found, please install
+			exit 1
+		)
+	done
+}
+
+main () {
+	cd /var/www/hsg-ip # $(readlink -f $0 | xargs dirname | xargs dirname)
+	git commit --allow-empty --author=CJ -m "$(
+		dig -tany hsg.rocks |
+		grep -ve ^$ -ve '^;' -ve registrar-servers
+	)"
+	git push github master
+}
+
+require dig grep xargs tee git
+main
