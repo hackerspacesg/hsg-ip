@@ -12,10 +12,11 @@ require () {
 
 main () {
 	cd /var/www/hsg-ip # $(readlink -f $0 | xargs dirname | xargs dirname)
-	git commit --allow-empty --author=CJ -m "$(
-		dig -tany hsg.rocks |
-		grep -ve ^$ -ve '^;' -ve registrar-servers
-	)"
+	dig -tany hsg.rocks |
+		grep -ve ^$ -ve '^;' -ve registrar-servers |
+		xargs | cut -d\  -f1,5 > dig.data
+	git add dig.data
+	git commit --author=CJ -m "$(cat dig.data)"
 	git push github master
 }
 
