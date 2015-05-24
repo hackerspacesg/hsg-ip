@@ -3,10 +3,11 @@
 require () {
 	for i
 	do
-		command -v "$i" > /dev/null || (
+		if ! command -v "$i" > /dev/null
+		then
 			echo command $i not found, please install
 			exit 1
-		)
+		fi
 	done
 }
 
