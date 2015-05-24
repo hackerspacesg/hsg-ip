@@ -15,7 +15,7 @@ main () {
 	curl curlmyip.com --silent --output /var/www/hsg-ip/dig.data
 	git add dig.data
 	git commit --author=CJ -m "$(cat dig.data)"
-	git push github master
+	git push origin master
 }
 
 require curl grep xargs tee git
