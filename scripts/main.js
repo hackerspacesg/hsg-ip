@@ -472,6 +472,7 @@ var Pokemon = function() {
         getById: e
     }
 }()
+  , blacklist = [10, 13, 16, 19, 21, 41, 98, 129]
   , API = function() {
     function e(e) {
         o(),
@@ -644,7 +645,11 @@ var Pokemon = function() {
             p.refreshClusters()
         })
     }
+    function isHidden(pokemonId) {
+        return -1 !== blacklist.indexOf(pokemonId);
+    }
     function d(e, a) {
+        if ( isHidden(e.pokemonId) ) return false;
         var i = 1e3 * e.created < Date.now() - w
           , n = [e.created.toString().slice(0, -1), e.pokemonId, parseFloat(e.latitude).toFixed(3), parseFloat(e.longitude).toFixed(3)]
           , o = n.join("_");
