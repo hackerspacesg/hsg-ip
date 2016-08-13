@@ -764,28 +764,3 @@ var Pokemon = function() {
         $("#android-perfect-throw-modal").modal("show")
     }, 5e3)
 }();
-var Ads = function() {
-    function e() {
-        googletag.cmd.push(function() {
-            googletag.defineSlot("/262329542/banner_320x50", [320, 50], "div-gpt-ad-1470771380958-0").addService(googletag.pubads()),
-            googletag.defineSlot("/262329542/banner_728x90", [728, 90], "div-gpt-ad-1470771380958-1").addService(googletag.pubads()),
-            googletag.defineSlot("/262329542/rectangle_300x250", [300, 250], "div-gpt-ad-1470771380958-2").addService(googletag.pubads()),
-            googletag.defineSlot("/262329542/rectangle_bottom_300x250", [300, 250], "div-gpt-ad-1470771380958-3").addService(googletag.pubads()),
-            googletag.pubads().collapseEmptyDivs(),
-            googletag.enableServices()
-        }),
-        googletag.cmd.push(function() {
-            googletag.display("div-gpt-ad-1470771380958-0")
-        }),
-        googletag.cmd.push(function() {
-            googletag.display("div-gpt-ad-1470771380958-1")
-        }),
-        googletag.cmd.push(function() {
-            googletag.display("div-gpt-ad-1470771380958-2")
-        }),
-        googletag.cmd.push(function() {
-            googletag.display("div-gpt-ad-1470771380958-3")
-        })
-    }
-    e()
-}();
